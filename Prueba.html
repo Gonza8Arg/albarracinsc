@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Operaciones Matemáticas</title>
+</head>
+<body>
+    <h2>Operaciones Matemáticas</h2>
+    <form>
+        <label for="numero">Ingrese un número:</label>
+        <input type="number" id="numero" step="any" required>
+        <input type="number" id="tasa" step="any" required>
+        <input type="number" id="semanas" step="any" required>
+        <button type="button" onclick="realizarOperaciones()">Calcular</button>
+    </form>
+
+    <h3>Resultados:</h3>
+    <p id="resultado"></p>
+    <p id="total"></p>
+    <p id="suma"></p>
+    <p id="truncado"></p>
+
+
+
+
+    <script>
+        function realizarOperaciones() {
+            // Obtener el número ingresado por el usuario
+            var tasa = parseFloat(document.getElementById("tasa").value);
+            var numero = parseFloat(document.getElementById("numero").value);
+            var semanas = parseFloat(document.getElementById("semanas").value);
+
+            // Realizar las operaciones matemáticas
+            var resultado = (numero * tasa) / 100;
+            var total = (resultado * semanas);
+            var suma = (total + numero);
+            var final = (suma / semanas);
+            var truncado = final.toFixed(2); 
+
+            // Mostrar el resultado en la página
+            document.getElementById("resultado").innerHTML = "El resultado es: " + resultado;
+            document.getElementById("total").innerHTML = "El total es: " + total;
+            document.getElementById("suma").innerHTML = "La suma con el interes es: " + suma;
+            document.getElementById("truncado").innerHTML = "Cada mes pagará: " + truncado;
+        }
+    </script>
+
+    
+</body>
+</html>
